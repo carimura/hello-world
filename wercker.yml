@@ -1,6 +1,6 @@
 box: golang
 build:
-	base-path: /go/src/github.com/carimura/hello-world
+  base-path: /go/src/github.com/carimura/hello-world
   steps:
     - script:
         name: go get
