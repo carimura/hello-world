@@ -1,4 +1,12 @@
 box: golang
+
+full-pipeline:
+  box: alpine
+  steps:
+    - script:
+        name: noop
+        code: echo "hello world"
+
 build:
   base-path: /go/src/github.com/carimura/hello-world
   steps:
