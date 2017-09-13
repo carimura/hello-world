@@ -27,6 +27,9 @@ push-release:
     - internal/docker-push:
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         working-dir: /pipeline/source
+        repository: registry-alpha.oracledx.com/carimura/hello-world
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
         ports: "8080"
         cmd: ./hello-world
 
