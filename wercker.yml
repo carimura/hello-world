@@ -30,7 +30,7 @@ push-release:
         repository: $DOCKER_REPO
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
-        ports: "8080"
+        ports: "8000"
         cmd: ./hello-world-app
 
 deploy:
