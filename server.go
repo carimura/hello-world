@@ -6,7 +6,7 @@ import (
 )
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello Web Server from ODX Registry!")
+	fmt.Fprintf(w, "Hello Web Server from ODX Registry")
 }
 
 func main() {
