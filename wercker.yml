@@ -42,7 +42,7 @@ deploy:
 
     - script:
         name: "Visualise Kubernetes config"
-        code: cat kubernetes.yml
+        code: cat k8s.yml
 
     - kubectl:
         name: deploy to kubernetes
