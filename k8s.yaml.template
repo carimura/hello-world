@@ -48,7 +48,7 @@ metadata:
   name: backend-demo-ingress
 spec:
   rules:
-  - host: http://129.146.34.192
+  - host: backend-demo.example.domain
     http:
       paths:
       - path:
