@@ -51,3 +51,5 @@ deploy:
         # token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f kubernetes.yml
+        debug: true
+        
