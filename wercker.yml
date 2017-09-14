@@ -42,7 +42,7 @@ deploy:
 
     - script:
         name: "Visualise Kubernetes config"
-        code: cat k8s.yml
+        code: cat k8s.yaml
 
     - kubectl:
         name: deploy to kubernetes
@@ -50,5 +50,5 @@ deploy:
         username: $KUBERNETES_USERNAME
         # token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f k8s.yml
+        command: apply -f k8s.yaml
         
