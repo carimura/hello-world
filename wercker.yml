@@ -27,10 +27,10 @@ push-release:
     - internal/docker-push:
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         working-dir: /pipeline/source
-        repository: registry-alpha.oracledx.com/carimura/hello-world
+        repository: $DOCKER_REPO
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
-        ports: "8080"
+        ports: "8000"
         cmd: ./hello-world
 
 deploy:
@@ -48,7 +48,6 @@ deploy:
         name: deploy to kubernetes
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
-        # token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: apply -f k8s.yaml
         
