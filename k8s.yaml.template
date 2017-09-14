@@ -1,51 +1,51 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: backend-demo
   labels:
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: backend-demo
   template:
     metadata:
       labels:
-        app: hello-world
+        app: backend-demo
         commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
-      - name: hello-world
+      - name: backend-demo
         image: ${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - name: hello-world
+        - name: backend-demo
           containerPort: 8000
           protocol: TCP
       imagePullSecrets:
-        - name: wercker
+        - name: chad
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: backend-demo
   labels:
-    app: hello-world
+    app: backend-demo
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   ports:
   - port: 8000
     targetPort: 8000
   selector:
-    app: hello-world
+    app: backend-demo
     commit: ${WERCKER_GIT_COMMIT}
   type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
+  name: backend-demo-ingress
 spec:
   rules:
   - host: http://129.146.34.192
@@ -53,5 +53,5 @@ spec:
       paths:
       - path:
         backend:
-          serviceName: hello-world
+          serviceName: backend-demo
           servicePort: 8000
