@@ -28,7 +28,6 @@ push-release:
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         working-dir: /pipeline/source
         repository: $DOCKER_REPO
-        username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         ports: "8000"
         cmd: ./hello-world-app
